@@ -1,0 +1,103 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" 
+          controllerName="qualityportal.controller.UsageDecision" displayBlock="true">
+    <App id="app2">
+        <pages>
+            <Page id="usageDecisionPage" title="Usage Decisions" showNavButton="true" navButtonPress="navBack">
+                <headerContent>
+                    <Button id="logoutButton" icon="sap-icon://log" press="onLogout" tooltip="Logout"/>
+                </headerContent>
+                <content>
+                    <Table id="usageDecisionTable" items="{ path: '/Usage_Decision', sorter: { path: 'prueflos', descending: false } }" 
+                           growing="true" growingThreshold="10" updateFinished="onUpdateFinished">
+                        <headerToolbar>
+                            <OverflowToolbar id="_IDGenOverflowToolbar2">
+                                <Title id="tableHeader3" text="Usage Decisions"/>
+                                <ToolbarSpacer id="_IDGenToolbarSpacer2"/>
+                                <SearchField id="searchField" width="20%" placeholder="Search by Lot No" search="onSearch"/>
+                                <Button id="filterButton" icon="sap-icon://filter" press="onFilterPress" tooltip="Filter"/>
+                                <Button id="sortButton" icon="sap-icon://sort" press="onSort" tooltip="Sort"/>
+                                <Button id="groupButton" icon="sap-icon://group-2" press="onGroup" tooltip="Group"/>
+                            </OverflowToolbar>
+                        </headerToolbar>
+                        <columns>
+                            <Column id="_IDGenColumn16" width="12em">
+                                <Text id="_IDGenText29" text="Inspection Lot"/>
+                            </Column>
+                            <Column id="_IDGenColumn17">
+                                <Text id="_IDGenText30" text="Inspection Type"/>
+                            </Column>
+                            <Column id="_IDGenColumn18">
+                                <Text id="_IDGenText31" text="Plant"/>
+                            </Column>
+                            <Column id="_IDGenColumn19">
+                                <Text id="_IDGenText32" text="Usage Decision"/>
+                            </Column>
+                            <Column id="_IDGenColumn20">
+                                <Text id="_IDGenText33" text="Decision Code"/>
+                            </Column>
+                            <Column id="_IDGenColumn21">
+                                <Text id="_IDGenText34" text="Decision By"/>
+                            </Column>
+                            <Column id="_IDGenColumn22">
+                                <Text id="_IDGenText35" text="Decision Date"/>
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem id="_IDGenColumnListItem2" type="Navigation" press="onItemPress">
+                                <cells>
+                                    <Text id="_IDGenText36" text="{prueflos}"/>
+                                    <Text id="_IDGenText37" text="{kzart}"/>
+                                    <Text id="_IDGenText38" text="{vwerks}"/>
+                                    <ObjectStatus id="_IDGenObjectStatus3" text="{vauswahlmg}" 
+                                                state="{= ${vauswahlmg} === '02' ? 'Success' : ${vauswahlmg} === '03' ? 'Error' : 'Warning' }"/>
+                                    <Text id="_IDGenText39" text="{vcode}"/>
+                                    <Text id="_IDGenText40" text="{vname}"/>
+                                    <Text id="_IDGenText41" text="{ 
+                                        path: 'vdatum',
+                                        type: 'sap.ui.model.type.Date',
+                                        formatOptions: {
+                                            style: 'medium'
+                                        }
+                                    }"/>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </content>
+            </Page>
+        </pages>
+        <dependents>
+            <Dialog id="detailDialog3" title="Usage Decision Details" stretch="false" contentWidth="40%" contentHeight="auto">
+                <content>
+                    <VBox id="_IDGenVBox5" class="sapUiSmallMargin">
+                        <HBox id="_IDGenHBox2" justifyContent="SpaceBetween">
+                            <VBox id="_IDGenVBox10">
+                                <Label id="_IDGenLabel22" text="Inspection Lot" design="Bold" class="sapUiTinyMarginBottom"/>
+                                <Text id="detailPrueflos3" class="sapUiTinyMarginBottom"/>
+                                <Label id="_IDGenLabel23" text="Inspection Type" design="Bold" class="sapUiTinyMarginBottom"/>
+                                <Text id="detailKzart" class="sapUiTinyMarginBottom"/>
+                                <Label id="_IDGenLabel24" text="Plant" design="Bold" class="sapUiTinyMarginBottom"/>
+                                <Text id="detailVwerks" class="sapUiTinyMarginBottom"/>
+                            </VBox>
+                            <VBox id="_IDGenVBox11">
+                                <Label id="_IDGenLabel25" text="Usage Decision" design="Bold" class="sapUiTinyMarginBottom"/>
+                                <ObjectStatus id="detailVauswahlmg" class="sapUiTinyMarginBottom"/>
+                                <Label id="_IDGenLabel26" text="Decision Code" design="Bold" class="sapUiTinyMarginBottom"/>
+                                <Text id="detailVcode3" class="sapUiTinyMarginBottom"/>
+                                <Label id="_IDGenLabel27" text="Decision By" design="Bold" class="sapUiTinyMarginBottom"/>
+                                <Text id="detailVname" class="sapUiTinyMarginBottom"/>
+                            </VBox>
+                        </HBox>
+                        <Label id="_IDGenLabel28" text="Decision Date" design="Bold" class="sapUiTinyMarginBottom"/>
+                        <Text id="detailVdatum" class="sapUiTinyMarginBottom"/>
+                        <Label id="_IDGenLabel29" text="Code Group" design="Bold" class="sapUiTinyMarginBottom"/>
+                        <Text id="detailVcodegrp" class="sapUiTinyMarginBottom"/>
+                    </VBox>
+                </content>
+                <beginButton>
+                    <Button id="_IDGenButton12" text="Close" press="onCloseDetailDialog"/>
+                </beginButton>
+            </Dialog>
+        </dependents>
+    </App>
+</mvc:View>

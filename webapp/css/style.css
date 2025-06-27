@@ -1,0 +1,56 @@
+.loginPage {
+    background: linear-gradient(135deg, #e0f7fa, #f1f8e9);
+}
+
+.qualityLoginPanel {
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+
+.customHeaderText .sapMPanelHdr {
+    justify-content: center;
+    background-color: #00796b;
+    color: rgb(0, 0, 0);
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+
+.customHeaderText .sapMPanelHdrTxt {
+    text-align: center;
+    width: 100%;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.inputLabel {
+    font-weight: bold;
+    color: #004d40;
+}
+
+.styledInput .sapMInputBaseInner {
+    border-radius: 8px;
+    border: 1px solid #b2dfdb;
+    padding: 0.5rem;
+}
+
+.qualityLoginButton {
+    background-color: #ffffff;
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.qualityLoginButton:hover {
+    background-color: #0d05f4;
+}
+.dashboardTile {
+    width: 12rem;
+    margin: 1rem;
+  }
+  
+  .dashboardFlexBox {
+    padding: 1rem;
+  }
+  

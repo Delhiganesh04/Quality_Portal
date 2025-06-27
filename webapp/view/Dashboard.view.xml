@@ -1,0 +1,19 @@
+<mvc:View
+  controllerName="qualityportal.controller.Dashboard"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m">
+  <Page id="_IDGenPage1" title="Dashboard" showNavButton="true" navButtonPress="navBack">
+  <headerContent>
+<Button id="_IDGenButton1" icon="sap-icon://log" press="onlogout" tooltip="logout"/>
+</headerContent>
+    <content>
+      <VBox id="_IDGenVBox3" height="2rem"/>
+<Title id="_IDGenTitle" text="Inspection Dashboard" level="H2" titleStyle="H2" textAlign="Center" width="100%" class="customTitleSpacing"/>
+<TileContainer id="tileContainer">
+<StandardTile id="_IDGenStandardTile" icon="sap-icon://inspect" number="" numberUnit="" title="Inspection Lot" press="onInspectionLotPress" info="Monitor Inspection Lot" class="dashboardTile"/>
+<StandardTile id="_IDGenStandardTile1" icon="sap-icon://notes" number="" numberUnit="" title="Results Recording" press="onResultsRecordingPress" info="Monitor Results Recording" class="dashboardTile"/>
+<StandardTile id="_IDGenStandardTile2" icon="sap-icon://decision" number="" numberUnit="" title="Usage Decision" press="onUsageDecisionPress" info="Monitor Usage Decision" class="dashboardTile"/>
+</TileContainer>
+    </content>
+  </Page>
+</mvc:View>

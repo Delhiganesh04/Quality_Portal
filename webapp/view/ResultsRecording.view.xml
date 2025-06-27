@@ -1,0 +1,100 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" 
+          controllerName="qualityportal.controller.ResultsRecording" displayBlock="true">
+    <App id="app1">
+        <pages>
+            <Page id="_IDGenPage3" title="Result Recording" showNavButton="true" navButtonPress="navBack">
+                <headerContent>
+                    <Button id="_IDGenButton7" icon="sap-icon://log" press="onLogout" tooltip="Logout"/>
+                </headerContent>
+                <content>
+                    <Table id="resultsTable" items="{ path: '/Result_Record', sorter: { path: 'prueflos', descending: false } }" 
+                           growing="true" growingThreshold="10" updateFinished="onUpdateFinished">
+                        <headerToolbar>
+                            <OverflowToolbar id="_IDGenOverflowToolbar1">
+                                <Title id="tableHeader" text="Result Records"/>
+                                <ToolbarSpacer id="_IDGenToolbarSpacer1"/>
+                                <SearchField id="_IDGenSearchField1" width="20%" placeholder="Search by Lot No" search="onSearch"/>
+                                <Button id="_IDGenButton8" icon="sap-icon://filter" press="onFilterPress" tooltip="Filter"/>
+                                <Button id="_IDGenButton9" icon="sap-icon://sort" press="onSort" tooltip="Sort"/>
+                                <Button id="_IDGenButton10" icon="sap-icon://group-2" press="onGroup" tooltip="Group"/>
+                            </OverflowToolbar>
+                        </headerToolbar>
+                        <columns>
+                            <Column id="_IDGenColumn9" width="12em">
+                                <Text id="_IDGenText1" text="Inspection Lot"/>
+                            </Column>
+                            <Column id="_IDGenColumn10">
+                                <Text id="_IDGenText18" text="Operation"/>
+                            </Column>
+                            <Column id="_IDGenColumn11">
+                                <Text id="_IDGenText19" text="Characteristic"/>
+                            </Column>
+                            <Column id="_IDGenColumn12">
+                                <Text id="_IDGenText20" text="Valuation"/>
+                            </Column>
+                            <Column id="_IDGenColumn13">
+                                <Text id="_IDGenText21" text="Stock Category"/>
+                            </Column>
+                            <Column id="_IDGenColumn14">
+                                <Text id="_IDGenText22" text="Plant"/>
+                            </Column>
+                            <Column id="_IDGenColumn15">
+                                <Text id="_IDGenText23" text="Inspection Type"/>
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem id="_IDGenColumnListItem1" type="Navigation" press="onItemPress">
+                                <cells>
+                                    <Text id="_IDGenText24" text="{prueflos}"/>
+                                    <Text id="_IDGenText25" text="{vorglfnr}"/>
+                                    <Text id="_IDGenText26" text="{merknr}"/>
+                                    <ObjectStatus id="_IDGenObjectStatus1" text="{mbewertg}" 
+                                                state="{= ${mbewertg} === 'A' ? 'Success' : 'Error' }"/>
+                                    <ObjectStatus id="_IDGenObjectStatus2" text="{path: 'stat35', formatter: '.formatter.formatStockCategory'}" 
+                                                state="{path: 'stat35', formatter: '.formatter.stockCategoryState'}"/>
+                                    <Text id="_IDGenText27" text="{werk}"/>
+                                    <Text id="_IDGenText28" text="{art}"/>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </content>
+            </Page>
+        </pages>
+        <dependents>
+            <Dialog id="detailDialog" title="Result Record Details" stretch="false" contentWidth="40%" contentHeight="auto">
+                <content>
+                    <VBox id="_IDGenVBox4" class="sapUiSmallMargin">
+                        <HBox id="_IDGenHBox1" justifyContent="SpaceBetween">
+                            <VBox id="_IDGenVBox8">
+                                <Label id="_IDGenLabel13" text="Inspection Lot" design="Bold" class="sapUiTinyMarginBottom"/>
+                                <Text id="detailPrueflos" class="sapUiTinyMarginBottom"/>
+                                <Label id="_IDGenLabel14" text="Operation" design="Bold" class="sapUiTinyMarginBottom"/>
+                                <Text id="detailVorglfnr" class="sapUiTinyMarginBottom"/>
+                                <Label id="_IDGenLabel15" text="Characteristic" design="Bold" class="sapUiTinyMarginBottom"/>
+                                <Text id="detailMerknr" class="sapUiTinyMarginBottom"/>
+                            </VBox>
+                            <VBox id="_IDGenVBox9">
+                                <Label id="_IDGenLabel16" text="Valuation" design="Bold" class="sapUiTinyMarginBottom"/>
+                                <ObjectStatus id="detailMbewertg" class="sapUiTinyMarginBottom"/>
+                                <Label id="_IDGenLabel17" text="Stock Category" design="Bold" class="sapUiTinyMarginBottom"/>
+                                <ObjectStatus id="detailStat35" class="sapUiTinyMarginBottom"/>
+                                <Label id="_IDGenLabel18" text="Plant" design="Bold" class="sapUiTinyMarginBottom"/>
+                                <Text id="detailWerk" class="sapUiTinyMarginBottom"/>
+                            </VBox>
+                        </HBox>
+                        <Label id="_IDGenLabel19" text="Inspection Type" design="Bold" class="sapUiTinyMarginBottom"/>
+                        <Text id="detailArt" class="sapUiTinyMarginBottom"/>
+                        <Label id="_IDGenLabel20" text="Material" design="Bold" class="sapUiTinyMarginBottom"/>
+                        <Text id="detailSelmatnr" class="sapUiTinyMarginBottom"/>
+                        <Label id="_IDGenLabel21" text="Object Number" design="Bold" class="sapUiTinyMarginBottom"/>
+                        <Text id="detailObjnr" class="sapUiTinyMarginBottom"/>
+                    </VBox>
+                </content>
+                <beginButton>
+                    <Button id="_IDGenButton11" text="Close" press="onCloseDetailDialog"/>
+                </beginButton>
+            </Dialog>
+        </dependents>
+    </App>
+</mvc:View>
