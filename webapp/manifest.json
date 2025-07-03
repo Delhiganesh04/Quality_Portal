@@ -96,7 +96,11 @@
         {
           "uri": "css/style.css"
         }
-      ]
+      ],
+      "img":[{
+        "uri" : "assets"
+      }
+      ] 
     },
     "routing": {
       "config": {

@@ -6,20 +6,26 @@
     xmlns:html="http://www.w3.org/1999/xhtml">
 
     <Page id="page" class="loginPage" showHeader="false">
+    
         <VBox id="_IDGenVBox1" width="100%" height="100%" justifyContent="Center" alignItems="Center">
+            <MessageStrip id="_IDGenMessageStrip" text="Login Success" type="Success" showCloseButton="true" visible="false"></MessageStrip>
+             <MessageStrip id="_IDGenMessageStrip1" text="Invalid Credentials" type="Error" showCloseButton="true" visible="false"></MessageStrip>
+            <!-- <Image id="_IDGenImage" src="assets/quality.png" width="150px" class="sapUiMediumMarginBottom"/> -->
+
             <Panel
                 id="_IDGenPanel"
-                headerText="🔧 Quality Inspection Login"
+                headerText=" Quality Inspection"
                 class="qualityLoginPanel customHeaderText"
                 width="400px"
                 expandable="false">
-
-                <VBox id="_IDGenVBox2" class="sapUiMediumMargin">
+                <VBox id="aligncenter" class="alignlogo">
+                <Image id="_IDGenImage" src="assets/quality.png" width="150px" class="sapUiMediumMarginBottom"/>
+                </VBox>
+                <VBox id="_IDGenVBox2">
                     <Label id="_IDGenLabel" text="Engineer ID" class="inputLabel" />
                     <Input
                         id="username"
                         placeholder="Enter your employee ID"
-                        icon="sap-icon://personnel-view"
                         showValueHelp="false"
                         class="styledInput" />
 
@@ -28,7 +34,6 @@
                         id="password"
                         placeholder="Enter secure password"
                         type="Password"
-                        icon="sap-icon://locked"
                         showValueHelp="false"
                         class="styledInput" />
 
@@ -40,6 +45,8 @@
                         class="qualityLoginButton sapUiMediumMarginTop" />
                 </VBox>
             </Panel>
+                            <Text id="_IDGenText2" text="© 2025 Kaar Tech" class="sapUiSmallMarginTop copyrightText"/>
+
         </VBox>
     </Page>
 </mvc:View>

@@ -7,7 +7,7 @@
                     <Button id="_IDGenButton7" icon="sap-icon://log" press="onLogout" tooltip="Logout"/>
                 </headerContent>
                 <content>
-                    <Table id="resultsTable" items="{ path: '/Result_Record', sorter: { path: 'prueflos', descending: false } }" 
+                    <Table id="resultsTable" alternateRowColors="true" items="{ path: '/Result_Record', sorter: { path: 'prueflos', descending: false } }" 
                            growing="true" growingThreshold="10" updateFinished="onUpdateFinished">
                         <headerToolbar>
                             <OverflowToolbar id="_IDGenOverflowToolbar1">

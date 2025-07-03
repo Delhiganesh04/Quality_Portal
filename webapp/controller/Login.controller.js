@@ -1,9 +1,8 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/m/MessageToast",
-    "sap/m/Button",
-    "sap/ui/core/Icon"
-], (Controller) => {
+    "sap/m/MessageStrip"
+], (Controller,MessageToast) => {
     "use strict";
 
     return Controller.extend("qualityportal.controller.Login", {
@@ -36,11 +35,18 @@ sap.ui.define([
                     console.log(username)
                     console.log((password))
                     if(sUsername === username && hashedPassword === password){
+                        // MessageToast.show("Login Success");
                         var loRouter = sap.ui.core.UIComponent.getRouterFor(some);
-                        loRouter.navTo("RouteDashboard");
+                        var ms = some.byId("_IDGenMessageStrip");
+                        ms.setVisible(true);
+                        setTimeout(() => loRouter.navTo("RouteDashboard"), 2000);
+                        // ms.setVisible(false)
                         console.log("Success")
                     }
                     else{
+                        // MessageToast.show("Invalid Credentials");
+                        var ms = some.byId("_IDGenMessageStrip1");
+                        ms.setVisible(true);
                         console.log("Invalid Credentials")
                     }
                 },
@@ -61,8 +67,6 @@ sap.ui.define([
             const encoder = new TextEncoder();
             const data = encoder.encode(password);
             const hashBuffer = await crypto.subtle.digest("SHA-256", data);
-        
-            // Convert buffer to base64
             const base64Hash = btoa(String.fromCharCode(...new Uint8Array(hashBuffer)));
             return base64Hash;
         }
